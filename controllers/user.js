@@ -21,26 +21,26 @@ const getSingle = async (req, res) => {
   });
 };
 
-const createContact = async (req, res) => {
-  const contact = {
+const createUser = async (req, res) => {
+  const user = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
     favoriteColor: req.body.favoriteColor,
     birthday: req.body.birthday
   };
-  const response = await mongodb.getDb().db().collection('user').insertOne(contact);
+  const response = await mongodb.getDb().db().collection('user').insertOne(user);
   if (response.acknowledged) {
     res.status(201).json(response);
   } else {
-    res.status(500).json(response.error || 'Some error occurred while creating the contact.');
+    res.status(500).json(response.error || 'Some error occurred while creating the user.');
   }
 };
 
-const updateContact = async (req, res) => {
+const updateUser = async (req, res) => {
   const userId = new ObjectId(req.params.id);
   // be aware of updateOne if you only want to update specific fields
-  const contact = {
+  const user = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
@@ -51,23 +51,23 @@ const updateContact = async (req, res) => {
     .getDb()
     .db()
     .collection('user')
-    .replaceOne({ _id: userId }, contact);
+    .replaceOne({ _id: userId }, user);
   console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send();
   } else {
-    res.status(500).json(response.error || 'Some error occurred while updating the contact.');
+    res.status(500).json(response.error || 'Some error occurred while updating the user.');
   }
 };
 
-const deleteContact = async (req, res) => {
+const deleteUser = async (req, res) => {
   const userId = new ObjectId(req.params.id);
   const response = await mongodb.getDb().db().collection('user').remove({ _id: userId }, true);
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();
   } else {
-    res.status(500).json(response.error || 'Some error occurred while deleting the contact.');
+    res.status(500).json(response.error || 'Some error occurred while deleting the user.');
   }
 };
 
