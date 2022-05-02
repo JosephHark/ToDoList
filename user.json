@@ -1,0 +1,30 @@
+{
+    "contact": {
+        "firstName": "Bruce",
+        "lastName": "Strange",
+        "email": "gR33n&Angry@avengewhat.com",
+        "birthday": "December 18, 1969",
+        "career": "Scientist"
+    },
+    "contact2": {
+        "firstName": "Steven",
+        "lastName": "Banner",
+        "email": "JazZHands@avengewhat.com",
+        "birthday": "November 18, 1930",
+        "career": "Doctor"
+    },
+    "contact3": {
+        "firstName": "Clint",
+        "lastName": "Romanoff",
+        "email": "1Sh0t1K!lL@avengewhat.com",
+        "birthday": "June 18th, 1980",
+        "career": "Government Agent"
+    },
+    "contact4": {
+        "firstName": "Natasha",
+        "lastName": "Barton",
+        "email": "deaD1yW0man@avengewhat.com",
+        "birthday": "December 3, 1984",
+        "career": "Government Agent"
+    }
+}

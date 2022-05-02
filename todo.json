@@ -1,0 +1,29 @@
+{
+    "item1": {
+        "name": "groceries",
+        "subject":"shopping",
+        "progress":"50%",
+        "dueDate":"5/2",
+        "location":"aldi's, costco",
+        "importance":"vital",
+        "contact":"none"
+    },
+    "item2": {
+        "name": "turn in group assignment",
+        "subject":"school",
+        "progress":"done",
+        "dueDate":"4/30",
+        "location":"home",
+        "importance":"very high",
+        "contact":"teacher"
+    },
+    "item3": {
+        "name": "pick up library books",
+        "subject":"free time",
+        "progress":"not started",
+        "dueDate":"5/4",
+        "location":"librrary",
+        "importance":"low",
+        "contact":"none"
+    }
+}
