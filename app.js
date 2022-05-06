@@ -12,7 +12,8 @@ app
     next();
   })
   .use('/', require('./routes'));
-
+  var authRouter = require('./routes/auth');
+  app.use('/', authRouter);
 mongodb.initDb((err) => {
   if (err) {
     console.log(err);
