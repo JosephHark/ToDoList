@@ -3,12 +3,8 @@ const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
 
 const port = process.env.PORT || 8080;
+var authRouter = require('./routes/auth');
 const app = express();
-
-var logger = require('morgan');
-var session = require('express-session');
-
-var SQLiteStore = require('connect-sqlite3')(session);
 
 app
   .use(bodyParser.json())
@@ -17,7 +13,6 @@ app
     next();
   })
   .use('/', require('./routes'));
-  var authRouter = require('./routes/auth');
   app.use('/', authRouter);
   
 mongodb.initDb((err) => {
