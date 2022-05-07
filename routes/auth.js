@@ -47,4 +47,23 @@ router.get('/login', function(req, res, next) {
   res.render('login');
 });
 router.get('/login/federated/google', passport.authenticate('google'));
+router.get('/oauth2/redirect/google', passport.authenticate('google', {
+  successRedirect: '/',
+  failureRedirect: '/login'
+}));
+passport.serializeUser(function(user, cb) {
+  process.nextTick(function() {
+    cb(null, { id: user.id, username: user.username, name: user.name });
+  });
+});
+
+passport.deserializeUser(function(user, cb) {
+  process.nextTick(function() {
+    return cb(null, user);
+  });
+});
+router.post('/logout', function(req, res, next) {
+  req.logout();
+  res.redirect('/');
+});
 module.exports = router;
